@@ -1,13 +1,14 @@
-from django.db.models.base import Model as Model
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models.base import Model as Model
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
-from django.views.generic import CreateView, ListView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.views.generic import DeleteView
-from .models import Category, Post, User, Comment
+
 from .constants import TOTAL_POSTS
-from .forms import PostForm, CommentForm
 from .mixins import AuthorMixin, CommentMixin, PostMixin
+from .models import Category, Comment, Post, User
+from .forms import CommentForm, PostForm
 from .utils import filter_search, filter_search_comment
 
 

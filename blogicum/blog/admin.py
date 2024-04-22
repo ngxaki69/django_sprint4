@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Category, Location, Post
+from .models import Category, Comment, Location, Post
 
 
 @admin.register(Post)
@@ -52,4 +52,22 @@ class LocationAdmin(admin.ModelAdmin):
     )
     list_editable = (
         'is_published',
+    )
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = (
+        'created_at',
+        'text',
+        'is_published',
+        'author',
+        'post'
+    )
+    list_editable = (
+        'is_published',
+    )
+    list_filter = (
+        'author',
+        'post',
     )
